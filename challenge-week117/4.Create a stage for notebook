@@ -1,0 +1,10 @@
+stage作成のコマンドを確認する
+
+snow stage --help
+
+stageを作成する
+
+snow stage create @notebook_stage --schema=public --enable-directory
+
+作成されたstageを確認する
+snow stage list

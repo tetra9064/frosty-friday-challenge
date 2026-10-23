@@ -1,0 +1,6 @@
+Download the following notebook from S3
+
+https://www.google.com/search?q=http://s3://frostyfridaychallenges/challenge_117/frosty_nb.ipynb
+URLを叩いてもバケットが見つからず、、 [The specified bucket does not exist]
+
+今回は自作しました。

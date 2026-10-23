@@ -1,0 +1,6 @@
+notebookをアップロードする
+
+snow stage copy frosty_nb.ipynb @public.notebook_stage
+
+アップロードされたファイルを確認する
+snow stage list-files @public.notebook_stage

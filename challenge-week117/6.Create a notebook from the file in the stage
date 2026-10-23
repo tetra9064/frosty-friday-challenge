@@ -1,0 +1,9 @@
+notebook作成のコマンドを確認する
+snow --help
+
+snow notebook --help
+
+snow notebook create --help
+
+notebookを作成する
+snow notebook create public.frosty_notebook -f @public.notebook_stage/frosty_nb.ipynb

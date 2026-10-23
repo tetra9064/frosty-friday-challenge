@@ -1,0 +1,6 @@
+下記コマンドでsnowflake cliをインストール
+
+brew install snowflake-cli
+
+バージョンを確認する
+brew list --versions snowflake-cli

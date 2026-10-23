@@ -1,0 +1,44 @@
+
+# デフォルトで利用するconnectionの指定
+default_connection_name = "frosty-friday"
+
+[connections.myconnection]
+account = ""
+user = ""
+
+
+# frosty friday用の接続設定
+# ------------------------------ #
+[connections.frosty-friday]
+account = "org-account"
+user = "SERVICE_SNOWFLAKE_CLI"
+warehouse = "COMPUTE_WH"
+role = "SYSADMIN"
+database = "FROSTY_FRIDAY"
+authenticator = "SNOWFLAKE_JWT"
+private_key_file = "/Users/<username>/.snowflake/keys/rsa_key.p8"
+# ------------------------------ #
+
+# Snowflake側で表示される認証ポリシーのIDを区別する
+# ------------------------------ #
+[cli.features]
+enable_separate_authentication_policy_id = true
+# ------------------------------ #
+
+
+# cliのバージョンに関する設定
+# ------------------------------ #
+[cli]
+ignore_new_version_warning = false
+auto_upgrade = false
+auto_upgrade_allow_major = false
+# ------------------------------ #
+
+
+# logの設定
+# ------------------------------ #
+[cli.logs]
+save_logs = true
+path = "/Users/<username>/.snowflake/logs"
+level = "info"
+# ------------------------------ #

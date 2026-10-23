@@ -1,0 +1,26 @@
+方法１
+コードバンドルで作成する
+
+ステージにコードバンドルの定義ファイルをアップロードする
+snow stage copy code_bundle.yml @public.notebook_stage
+
+コードバンドルを作成する
+snow bundle create frosty_notebook --source @public.notebook_stage 
+
+コードバンドルを実行する
+snow bundle execute frosty_notebook --entrypoint=frosty_nb.ipynb
+
+方法2
+ワークスペースにノートブックを作成する
+
+ワークスペースにライブバージョンを作成する
+snow sql -q "ALTER WORKSPACE FROSTY_FRIDAY.PUBLIC.FROSTY_FRIDAY_WS ADD LIVE VERSION FROM LAST;"
+
+ローカルのipynbファイルをワークスペースにアップロードする
+snow sql -q "PUT file://./frosty_nb.ipynb snow://workspace/FROSTY_FRIDAY.PUBLIC.FROSTY_FRIDAY_WS/versions/head/ AUTO_COMPRESS=false OVERWRITE=true;"
+
+アップロードされたことを確認する
+snow sql -q "LIST 'snow://workspace/FROSTY_FRIDAY.PUBLIC.FROSTY_FRIDAY_WS/versions/head/';"
+
+ライブバージョンをコミットする
+snow sql -q "ALTER WORKSPACE FROSTY_FRIDAY.PUBLIC.FROSTY_FRIDAY_WS COMMIT;"
